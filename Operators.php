@@ -84,12 +84,12 @@ if($number_1 > 2 && $number_2 < 10) { // Logical AND
 } else {
     echo "Invalid <br/>"; 
 }
-echo "<br>";
+echo "<br>"; 
 
 if($number_1 > 2 || $number_2 < 10) { // Logical OR
     echo "Valid <br/>";
 } else {
-    echo "Invalid <br/>"; 
+    echo "Invalid  <br/>"; 
 }
 
 
