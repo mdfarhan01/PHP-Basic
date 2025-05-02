@@ -1,20 +1,47 @@
 <?php
 
-$name =[
-    "alice" => "20",
-    "bob" => "30",
-    "charlie" => "40",
+
+
+//Type of array
+
+//1. Indexed array
+echo "<h2>Indexed Array</h2>";
+echo "<br/>";
+
+$mark = array(29, 30, 31, 32, 33, 34, 35, 36, 37, 38);
+
+echo $mark[3] . '<br/>';
+echo $mark[5] . '<br/>';
+
+echo "hello world <br/>" ;
+
+
+//associative array
+echo "<h2>Associative Array</h2>";
+echo "<br/>";
+
+
+$student_documents = [
+    "Name" => "Ali Hosian",
+    "Age" => 20,
+    "Address" => "Lahore",
+    "Phone" => "0300-1234567",
+    "Email" => "alihosian01@gmail.com",    
+    "Roll" => 20180,
+    "Department" => "Computer Science",
+    "University" => "Tisi",
 ];
 
-echo $name ["alice"] . '<br/>'; // Output: 20
-echo $name ["bob"] . '<br/>'; // Output: 30
-echo $name ["charlie"] . '<br/>'; // Output: 40
 
-
-foreach ($name as $key => $value) {
-    echo "$key: $value" . '<br/>'; // Output: alice: 20, bob: 30, charlie: 40
+foreach ($student_documents as $key => $value){
+    echo "$key :  $value <br/>";
 }
 
+
+
+//multidimensional array
+echo "<h2>Multidimensional Array</h2>";
+echo " <h2> first example</h2><br/>";
 
 
 $emp = [
@@ -35,19 +62,11 @@ $emp = [
     ['15', 'Oscar', 'HR'],
  ]; // ✅ <-- Missing semicolon fixed
  
- // Loop through multidimensional array
- for ($row = 0; $row < count($emp); $row++) {
-     for ($col = 0; $col < count($emp[$row]); $col++) {
-         echo $emp[$row][$col] . " ";
-     }
-     echo "<br/>";
- 
-    }
 
 
 foreach($emp as $employee){
     foreach($employee as $data){
-        echo $data . " ";
+        echo $data . " <br/>" ;
     }
     echo "<br/>";
 }
@@ -55,41 +74,86 @@ foreach($emp as $employee){
 
 
 
-$mark = [
-       "sm01" => [
-        "physics" => 80,
-        "chemistry" => 90,
-        "math" => 85,
-       ],
-       "ali" => [
-        "physics" => 70,
-        "chemistry" => 60,
-        "math" => 75,
-       ],
-         "sara" => [
-          "physics" => 90,
-          "chemistry" => 95,
-          "math" => 100,
-         ],
-            "john" => [
-            "physics" => 85,
-            "chemistry" => 80,
-            "math" => 90,
-            ],
-       
-        ];
+echo "<br/>";
+
+$student_info = [
+    "Ali" => [
+        "Roll" => 20180,
+        "Department" => "Computer Science",
+        "University" => "Tisi",
+        "Address" => "Lahore",
+        "Phone" => "0300-1234567",
+        "Email" => "alihosian01@gmail.com",
+    ],
+    "Farhan Sadik" => [
+        "Roll" => 20181,
+        "Department" => "Computer Science",
+        "University" => "Tisi",
+        "Address" => "Lahore",
+        "Phone" => "0300-1234567",
+        "Email" => "farhansadik01@gmail.com",
+    ],
+    "Nur A Nayeem" => [
+        "Roll" => 20182,
+        "Department" => "Computer Science",
+        "University" => "Tisi",
+        "Address" => "Lahore",
+        "Phone" => "0300-1234567",
+        "Email" => "nuranayeem01@gmail.com",
+    ],
+    "Ali Raza" => [
+        "Roll" => 20183,
+        "Department" => "Computer Science",
+        "University" => "Tisi",
+        "Address" => "Lahore",
+        "Phone" => "0300-1234567",
+        "Email" => "alireza@gmail.com",
+    
+    ]
+];
+
+?>
+
+<table style="width:60%">
+  <tr>
+    <th>Name</th>
+    <th>Roll</th>
+    <th>Department</th>
+    <th>University</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Email</th>
+  </tr>
+  <?php foreach($student_info as $name => $details): ?>
+  <tr>
+    <td><?php echo $name; ?></td>
+    <td><?php echo $details['Roll']; ?></td>
+    <td><?php echo $details['Department']; ?></td>
+    <td><?php echo $details['University']; ?></td>
+    <td><?php echo $details['Address']; ?></td>
+    <td><?php echo $details['Phone']; ?></td>
+    <td><?php echo $details['Email']; ?></td>
+  </tr>
+  <?php endforeach; ?>
+</table>
 
 
 
-foreach ($mark as $key => $value) {
-    foreach ($value as $value_2) {
-        echo $value_2 . " ";
-    }
-    echo "<br/>";
+
+<style>
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
 }
+</style>
 
 
+<?php
 
+
+echo "<br/>";
+echo "<h2>Multidimensional Array</h2>"; 
 
 $mark = [
      [
@@ -158,9 +222,70 @@ $mark = [
 
 
 
-foreach ( $mark as list("physics" => $phy, "chemistry" => $che, "math" => $math)) {
-    echo "$phy $che $math <br/>";
-}
+     ?>
+
+<table style="width:50%">
+  <tr>
+    <th>physics</th>
+    <th>chemistry</th>
+    <th>math</th>
+  </tr>
+ <?php foreach ($mark as $subjects => $numbers) :?>
+  <tr>
+    <td><?php echo $numbers['physics']?></td>
+    <td><?php echo $numbers['chemistry'] ?></td>
+    <td><?php echo $numbers['math'] ?></td>
+  </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
+
+<?php
+     
+
+//search in array 
+
+echo "<h2>Search in Array</h2>";
+
+$student_name = array("ali", "bob", "charlie", "david", "eve", "frank", "george", "harry", "ian", "jack");
+
+
+echo in_array("bob", $student_name); // Output: true
 echo "<br/>";
+
+
+if (in_array("bob", $student_name)) {
+    echo "Bob is in the array.";
+} else {
+    echo "Bob is not in the array.";
+}
+
+echo "<br/>";
+echo "<h2> search</h2>";
+
+
+
+$address = array( 
+    "ali" => "lahore",
+    "bob" => "karachi",
+    "charlie" => "islamabad",
+    "david" => "peshawar",
+    "eve" => "quetta",
+    "frank" => "multan",
+    "george" => "faisalabad",
+    "harry" => "rawalpindi",
+    "ian" => "gujranwala",
+    "jack" => "sialkot"
+);
+echo "<br/>";
+
+
+foreach ($address as $key => $anythings) {
+    echo "$key lives in $anythings <br/>";
+}
+
+
 
 ?>
