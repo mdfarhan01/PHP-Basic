@@ -45,4 +45,9 @@ else { echo "Invalid '<br/>"; } // Logical AND
 if ($a > 2 || $b < 10) { echo "Valid '<br/>"; }
 else { echo "Invalid '<br/>"; } // Logical OR 
 
+
+
+
+
+
 ?>
